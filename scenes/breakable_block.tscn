@@ -8,7 +8,7 @@ size = Vector2(16, 16)
 
 [node name="BreakableBlock" type="Area2D"]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 0
 script = ExtResource("1_d88id")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

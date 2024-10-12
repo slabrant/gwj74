@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://cfr4wupxkteff"]
+[gd_scene load_steps=9 format=4 uid="uid://cfr4wupxkteff"]
 
 [ext_resource type="Texture2D" uid="uid://dksj6ispeyk3n" path="res://sprites/block.png" id="1_6xfjt"]
 [ext_resource type="PackedScene" uid="uid://pobwul4cnkah" path="res://scenes/player.tscn" id="2_qhgf1"]
 [ext_resource type="PackedScene" uid="uid://drruw3a3l261l" path="res://scenes/cart.tscn" id="3_f5rc0"]
-[ext_resource type="Script" path="res://scenes/cart.gd" id="4_nqtqn"]
 [ext_resource type="PackedScene" uid="uid://b0p2hys3ctvuc" path="res://scenes/monster.tscn" id="5_xnctd"]
 [ext_resource type="Script" path="res://scenes/monster.gd" id="6_2fgs2"]
 [ext_resource type="PackedScene" uid="uid://cy3f5555rpss0" path="res://scenes/breakable_block.tscn" id="7_wxytj"]
@@ -28,7 +27,6 @@ position = Vector2(48, -48)
 
 [node name="Cart" parent="." instance=ExtResource("3_f5rc0")]
 position = Vector2(44, 72)
-script = ExtResource("4_nqtqn")
 
 [node name="Monster" parent="." instance=ExtResource("5_xnctd")]
 position = Vector2(-74, 23)
