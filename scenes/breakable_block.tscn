@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy3f5555rpss0"]
+
+[ext_resource type="Texture2D" uid="uid://be3ogyi6sm5f4" path="res://sprites/breakable_block.png" id="1_7o7wa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_568d8"]
+size = Vector2(16, 16)
+
+[node name="BreakableBlock" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7o7wa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_568d8")
