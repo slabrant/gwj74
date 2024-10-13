@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node) -> void:
+	print(body.name)
 	if body.has_method('hurt'):
-		body.hurt(10)
+		body.hurt(30)
 		queue_free()
-	pass # Replace with function body.

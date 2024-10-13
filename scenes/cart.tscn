@@ -1,34 +1,114 @@
-[gd_scene load_steps=5 format=3 uid="uid://drruw3a3l261l"]
+[gd_scene load_steps=14 format=3 uid="uid://drruw3a3l261l"]
 
 [ext_resource type="Script" path="res://scenes/cart.gd" id="1_o1r18"]
-[ext_resource type="Texture2D" uid="uid://c0r4wr3sr3k5v" path="res://sprites/long_cart.png" id="1_r60fy"]
+[ext_resource type="Texture2D" uid="uid://qyaiurexwn8u" path="res://sprites/new_cart.png" id="2_ywh73"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecfov"]
+atlas = ExtResource("2_ywh73")
+region = Rect2(0, 0, 120, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02kjg"]
+atlas = ExtResource("2_ywh73")
+region = Rect2(120, 0, 120, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5u28"]
+atlas = ExtResource("2_ywh73")
+region = Rect2(240, 0, 120, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iitu5"]
+atlas = ExtResource("2_ywh73")
+region = Rect2(360, 0, 120, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7j0x4"]
+atlas = ExtResource("2_ywh73")
+region = Rect2(480, 0, 120, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lnqd"]
+atlas = ExtResource("2_ywh73")
+region = Rect2(600, 0, 120, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0g1yi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecfov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02kjg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5u28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iitu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7j0x4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lnqd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a0uqa"]
+load_path = "res://.godot/imported/cart.png-fe0f0399acb5a2e9e3a1ccb8d45a3934.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7pdm"]
-size = Vector2(48, 3)
+size = Vector2(106, 2.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxvjk"]
-size = Vector2(48, 7)
+size = Vector2(106, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5s0vd"]
+radius = 53.0
 
 [node name="Cart" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_o1r18")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_r60fy")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0g1yi")
+autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2.5)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = SubResource("CompressedTexture2D_a0uqa")
+
+[node name="FloorCollision" type="CollisionShape2D" parent="."]
+position = Vector2(3, -2.75)
 shape = SubResource("RectangleShape2D_y7pdm")
 
 [node name="HurtArea" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 0
+collision_layer = 16
+collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea"]
-position = Vector2(0, 4.5)
+[node name="HurtCollision" type="CollisionShape2D" parent="HurtArea"]
+position = Vector2(3, 6)
 shape = SubResource("RectangleShape2D_sxvjk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.2, 1.2)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
+
+[node name="FixArea" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FixArea"]
+position = Vector2(3, -3)
+shape = SubResource("CircleShape2D_5s0vd")
+
+[node name="FixLabel" type="Label" parent="."]
+visible = false
+offset_left = -11.0
+offset_top = -21.0
+offset_right = 14.0
+offset_bottom = 2.0
+text = "Fix"
+
+[connection signal="body_entered" from="FixArea" to="." method="_on_fix_area_body_entered"]
+[connection signal="body_exited" from="FixArea" to="." method="_on_fix_area_body_exited"]
