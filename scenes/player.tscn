@@ -46,8 +46,8 @@ animations = [{
 "speed": 15.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dd8kv"]
-radius = 8.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1t0em"]
+size = Vector2(5, 17)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
@@ -62,7 +62,8 @@ visible = false
 texture = ExtResource("2_ivmsp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_dd8kv")
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_1t0em")
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_y4nv0")

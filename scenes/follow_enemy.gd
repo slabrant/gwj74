@@ -9,7 +9,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_hurt_area_body_entered(body: Node2D) -> void:
 	if body.has_method('hurt'):
 		body.hurt(10)
 		queue_free()
