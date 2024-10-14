@@ -82,6 +82,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_2lwev")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -48)
 zoom = Vector2(1.2, 1.2)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0

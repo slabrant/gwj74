@@ -3,7 +3,8 @@ extends CharacterBody2D
 @onready var fix_label: Label = $FixLabel
 
 const HEALTH_MAX = 100
-@export var speed: float = 0.5 * HEALTH_MAX
+const SPEED_MAX = 15.0
+@export var speed: float = SPEED_MAX * HEALTH_MAX
 @export var health: int = HEALTH_MAX:
 	set(value):
 		if value <= 0:
@@ -14,7 +15,7 @@ const HEALTH_MAX = 100
 		if fixable:
 			fix_label.visible = value < HEALTH_MAX
 		health = value
-		speed = 0.5 * value
+		speed = SPEED_MAX * value
 @export var fixable: bool = false:
 	set(value):
 		fixable = value
@@ -27,7 +28,7 @@ const HEALTH_MAX = 100
 
 
 func _physics_process(delta: float) -> void:
-	velocity.x = speed
+	velocity.x = speed * delta
 	move_and_slide()
 
 

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var cart = %Cart
 const BULLET = preload("res://scenes/bullet.tscn")
 
@@ -20,13 +20,13 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("input_jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		animated_sprite_2d.play("jump")
+		sprite.play("jump")
 		jump_sound.play()
 	elif is_on_floor():
-		animated_sprite_2d.play("idle")
+		sprite.play("idle")
 	
 	if Input.is_action_just_pressed("input_duck"):
-		position.y += 8
+		position.y += (1 - crouch_ratio) * 24 # sprite height
 		
 	if Input.is_action_pressed("input_duck"):
 		scale.y = crouch_ratio
@@ -45,7 +45,7 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("input_left", "input_right")
 	if direction:
 		velocity.x = direction * SPEED
-		animated_sprite_2d.flip_h = direction != 1
+		sprite.flip_h = direction != 1
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
