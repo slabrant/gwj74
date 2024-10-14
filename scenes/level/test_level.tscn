@@ -70,10 +70,10 @@ position = Vector2(288, 72)
 position = Vector2(520, 72)
 
 [node name="FollowEnemy" parent="." instance=ExtResource("7_fm1v0")]
-position = Vector2(1048, 112)
+position = Vector2(1064, 128)
 
 [node name="FollowEnemy2" parent="." instance=ExtResource("7_fm1v0")]
-position = Vector2(736, -32)
+position = Vector2(736, -40)
 
 [node name="NavigationLayer" type="TileMapLayer" parent="."]
 visible = false
