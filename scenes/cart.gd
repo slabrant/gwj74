@@ -2,14 +2,15 @@ extends CharacterBody2D
 
 @onready var fix_label: Label = $FixLabel
 
-@export var speed: float = 50.0
 const HEALTH_MAX = 100
+@export var speed: float = 0.5 * HEALTH_MAX
 @export var health: int = HEALTH_MAX:
 	set(value):
 		if value <= 0:
 			value = 0
 		elif HEALTH_MAX <= value:
 			value = HEALTH_MAX
+			fixing = false
 		if fixable:
 			fix_label.visible = value < HEALTH_MAX
 		health = value
@@ -19,20 +20,22 @@ const HEALTH_MAX = 100
 		fixable = value
 		if (value == true and health < HEALTH_MAX) or value == false:
 			fix_label.visible = value
+@export var fixing: bool = false:
+	set(value):
+		fixing = value
+@export var fix_speed: float = 75.00
+
 
 func _physics_process(delta: float) -> void:
-	var direction := 1
-	if direction:
-		velocity.x = direction * speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
-
-	if Input.is_action_just_pressed("input_fix") and fixable:
-		fix(20)
+	velocity.x = speed
 	move_and_slide()
 
-func fix(amount):
-	health += amount
+
+func game_end():
+	get_tree().root.get_child(0).game_end()
+
+func fix(delta):
+	health += fix_speed * delta
 
 func hurt(amount):
 	health -= amount
@@ -43,4 +46,5 @@ func _on_fix_area_body_entered(body: Node2D) -> void:
 
 
 func _on_fix_area_body_exited(body: Node2D) -> void:
+	fixing = false
 	fixable = false

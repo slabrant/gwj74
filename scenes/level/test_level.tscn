@@ -1,11 +1,10 @@
-[gd_scene load_steps=15 format=4 uid="uid://cfr4wupxkteff"]
+[gd_scene load_steps=14 format=4 uid="uid://cfr4wupxkteff"]
 
 [ext_resource type="Texture2D" uid="uid://dksj6ispeyk3n" path="res://sprites/block.png" id="1_6xfjt"]
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_b6ght"]
 [ext_resource type="PackedScene" uid="uid://pobwul4cnkah" path="res://scenes/player.tscn" id="2_qhgf1"]
 [ext_resource type="PackedScene" uid="uid://drruw3a3l261l" path="res://scenes/cart.tscn" id="3_f5rc0"]
 [ext_resource type="PackedScene" uid="uid://b0p2hys3ctvuc" path="res://scenes/monster.tscn" id="5_xnctd"]
-[ext_resource type="Script" path="res://scenes/monster.gd" id="6_2fgs2"]
 [ext_resource type="PackedScene" uid="uid://ifam3gtykk4o" path="res://scenes/follow_enemy.tscn" id="7_fm1v0"]
 [ext_resource type="PackedScene" uid="uid://cy3f5555rpss0" path="res://scenes/breakable_block.tscn" id="7_wxytj"]
 [ext_resource type="Texture2D" uid="uid://414t0rkl31nq" path="res://sprites/navigation.png" id="9_k4gmb"]
@@ -34,7 +33,7 @@ texture = ExtResource("9_k4gmb")
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_lldu8")
 
-[node name="test_level" type="Node2D"]
+[node name="World" type="Node2D"]
 script = ExtResource("1_b6ght")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -42,39 +41,173 @@ tile_map_data = PackedByteArray("AAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAA
 tile_set = SubResource("TileSet_ftra7")
 
 [node name="Player" parent="." instance=ExtResource("2_qhgf1")]
+unique_name_in_owner = true
 position = Vector2(48, -48)
 
 [node name="Cart" parent="." instance=ExtResource("3_f5rc0")]
+unique_name_in_owner = true
 position = Vector2(48, 64)
 
 [node name="Monster" parent="." instance=ExtResource("5_xnctd")]
 position = Vector2(-112, 23)
-script = ExtResource("6_2fgs2")
-
-[node name="BreakableBlock" parent="." instance=ExtResource("7_wxytj")]
-position = Vector2(392, 72)
-
-[node name="BreakableBlock2" parent="." instance=ExtResource("7_wxytj")]
-position = Vector2(408, 56)
-
-[node name="BreakableBlock3" parent="." instance=ExtResource("7_wxytj")]
-position = Vector2(408, 72)
-
-[node name="BreakableBlock4" parent="." instance=ExtResource("7_wxytj")]
-position = Vector2(536, 72)
-
-[node name="BreakableBlock5" parent="." instance=ExtResource("7_wxytj")]
-position = Vector2(288, 72)
-
-[node name="BreakableBlock6" parent="." instance=ExtResource("7_wxytj")]
-position = Vector2(520, 72)
-
-[node name="FollowEnemy" parent="." instance=ExtResource("7_fm1v0")]
-position = Vector2(1064, 128)
-
-[node name="FollowEnemy2" parent="." instance=ExtResource("7_fm1v0")]
-position = Vector2(736, -40)
 
 [node name="NavigationLayer" type="TileMapLayer" parent="."]
 visible = false
 tile_set = SubResource("TileSet_ydy75")
+
+[node name="Blocks" type="Node" parent="."]
+
+[node name="BreakableBlock" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(984, 72)
+
+[node name="BreakableBlock2" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1016, 56)
+
+[node name="BreakableBlock3" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1016, 72)
+
+[node name="BreakableBlock4" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(984, 40)
+
+[node name="BreakableBlock13" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1080, 72)
+
+[node name="BreakableBlock15" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1144, 56)
+
+[node name="BreakableBlock20" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1168, 72)
+
+[node name="BreakableBlock24" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1256, 40)
+
+[node name="BreakableBlock30" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1272, 72)
+
+[node name="BreakableBlock33" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1312, 40)
+
+[node name="BreakableBlock39" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1352, 72)
+
+[node name="BreakableBlock40" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1392, 40)
+
+[node name="BreakableBlock41" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1392, 56)
+
+[node name="BreakableBlock42" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1392, 72)
+
+[node name="BreakableBlock36" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1368, 56)
+
+[node name="BreakableBlock37" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1352, 40)
+
+[node name="BreakableBlock38" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1336, 56)
+
+[node name="BreakableBlock34" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1312, 56)
+
+[node name="BreakableBlock35" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1312, 72)
+
+[node name="BreakableBlock31" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1272, 56)
+
+[node name="BreakableBlock32" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1200, 40)
+
+[node name="BreakableBlock26" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1248, 56)
+
+[node name="BreakableBlock27" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1232, 40)
+
+[node name="BreakableBlock28" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1224, 56)
+
+[node name="BreakableBlock29" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1224, 72)
+
+[node name="BreakableBlock25" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1200, 56)
+
+[node name="BreakableBlock43" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1184, 72)
+
+[node name="BreakableBlock44" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1200, 72)
+
+[node name="BreakableBlock21" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1168, 56)
+
+[node name="BreakableBlock22" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1168, 40)
+
+[node name="BreakableBlock23" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1136, 72)
+
+[node name="BreakableBlock16" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1136, 40)
+
+[node name="BreakableBlock17" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1120, 72)
+
+[node name="BreakableBlock18" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1120, 56)
+
+[node name="BreakableBlock19" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1120, 40)
+
+[node name="BreakableBlock14" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1064, 64)
+
+[node name="BreakableBlock7" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1040, 72)
+
+[node name="BreakableBlock8" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1072, 48)
+
+[node name="BreakableBlock9" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1056, 40)
+
+[node name="BreakableBlock10" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1040, 56)
+
+[node name="BreakableBlock11" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1040, 40)
+
+[node name="BreakableBlock12" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1016, 40)
+
+[node name="BreakableBlock5" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(984, 56)
+
+[node name="BreakableBlock45" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(392, 72)
+
+[node name="BreakableBlock46" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(392, 56)
+
+[node name="BreakableBlock47" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(392, 40)
+
+[node name="BreakableBlock48" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(464, 40)
+
+[node name="BreakableBlock49" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(536, 40)
+
+[node name="BreakableBlock6" parent="Blocks" instance=ExtResource("7_wxytj")]
+position = Vector2(1000, 72)
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="FollowEnemy" parent="Enemies" instance=ExtResource("7_fm1v0")]
+position = Vector2(1120, 112)
+
+[node name="FollowEnemy2" parent="Enemies" instance=ExtResource("7_fm1v0")]
+position = Vector2(736, -40)
