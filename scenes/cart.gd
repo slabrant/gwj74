@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var fix_label: Label = $FixLabel
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 const HEALTH_MAX = 100
 const SPEED_MAX = 15.0
@@ -16,6 +17,7 @@ const SPEED_MAX = 15.0
 			fix_label.visible = value < HEALTH_MAX
 		health = value
 		speed = SPEED_MAX * value
+		set_damage_sprite()
 @export var fixable: bool = false:
 	set(value):
 		fixable = value
@@ -35,12 +37,24 @@ func _physics_process(delta: float) -> void:
 func game_end():
 	get_tree().root.get_child(0).game_end()
 
+
 func fix(delta):
 	health += fix_speed * delta
+
 
 func hurt(amount):
 	health -= amount
 
+
+func set_damage_sprite():
+	if 90 < health:
+		sprite.play("0")
+	elif 65 < health:
+		sprite.play("1")
+	elif 40 < health:
+		sprite.play("2")
+	else:
+		sprite.play("3")
 
 func _on_fix_area_body_entered(body: Node2D) -> void:
 	fixable = true

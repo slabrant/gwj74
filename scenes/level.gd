@@ -3,7 +3,6 @@ extends Node2D
 @onready var navigation_layer: TileMapLayer = $NavigationLayer
 @onready var tile_map_layer: TileMapLayer = $TileMapLayer
 
-
 func game_end():
 	get_tree().reload_current_scene()
 
@@ -18,3 +17,10 @@ func generate_navigation():
 		for y in range(get_rekt.position.y, get_rekt.position.y + get_rekt.size.y):
 			if tile_map_layer.get_cell_source_id(Vector2(x,y)) != 0:
 				navigation_layer.set_cell(Vector2(x,y), 0, Vector2i(0, 0))
+
+func play_sound(sound, volume_db):
+	var player = AudioStreamPlayer.new()
+	player.stream = sound
+	player.volume_db = volume_db
+	add_child(player)
+	player.play()

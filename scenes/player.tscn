@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_ujdyw"]
 [ext_resource type="Texture2D" uid="uid://d33th805pqta4" path="res://sprites/new_player.png" id="2_ivmsp"]
 [ext_resource type="Texture2D" uid="uid://c0nqcqxx46bcs" path="res://sprites/new_player_jump.png" id="3_hwh5g"]
-[ext_resource type="AudioStream" uid="uid://cp5s302l20sw1" path="res://sounds/snd_jump.wav" id="3_y4nv0"]
+[ext_resource type="AudioStream" uid="uid://cp5s302l20sw1" path="res://sounds/jump.wav" id="3_y4nv0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_36cds"]
 atlas = ExtResource("2_ivmsp")

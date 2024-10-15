@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://cp5s302l20sw1"
-path="res://.godot/imported/snd_jump.wav-5f248f007d4cb90657df110a7d7edf94.sample"
+uid="uid://darbh7fjaox6d"
+path="res://.godot/imported/enemy_die.wav-5425a580a50b7b83b099375bf3c049be.sample"
 
 [deps]
 
-source_file="res://sounds/snd_jump.wav"
-dest_files=["res://.godot/imported/snd_jump.wav-5f248f007d4cb90657df110a7d7edf94.sample"]
+source_file="res://sounds/enemy_die.wav"
+dest_files=["res://.godot/imported/enemy_die.wav-5425a580a50b7b83b099375bf3c049be.sample"]
 
 [params]
 

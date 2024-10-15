@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
 @onready var follow_navigation: NavigationAgent2D = $FollowNavigation
+const ENEMY_DIE = preload("res://sounds/enemy_die.wav")
 
 @export var FORCE = 55
 
 
 func die():
+	get_tree().root.get_child(0).play_sound(ENEMY_DIE, -10)
 	queue_free()
 
 

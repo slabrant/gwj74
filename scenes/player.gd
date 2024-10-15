@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var cart = %Cart
 const BULLET = preload("res://scenes/bullet.tscn")
+const SHOOT = preload("res://sounds/shoot.wav")
 
 const SPEED = 150.0
 const BULLET_SPEED = 150.0
@@ -57,6 +58,7 @@ func game_end():
 
 
 func shoot(start_position: Vector2, end_position: Vector2):
+	get_tree().root.get_child(0).play_sound(SHOOT, -10)
 	var bullet = BULLET.instantiate()
 	bullet.position = start_position
 	bullet.velocity = (end_position - start_position).normalized() * BULLET_SPEED

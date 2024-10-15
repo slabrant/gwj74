@@ -1,7 +1,11 @@
 extends CharacterBody2D
 
 
+const EXPLODE = preload("res://sounds/explode.wav")
+
+
 func die():
+	get_tree().root.get_child(0).play_sound(EXPLODE, -14)
 	queue_free()
 
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://ifam3gtykk4o"]
+[gd_scene load_steps=18 format=3 uid="uid://ifam3gtykk4o"]
 
 [ext_resource type="Script" path="res://scenes/follow_enemy.gd" id="1_2507t"]
 [ext_resource type="Texture2D" uid="uid://dwxij5v45fmbv" path="res://sprites/enemy.png" id="1_amaok"]
 [ext_resource type="Texture2D" uid="uid://tccp3857bnje" path="res://sprites/new_enemy.png" id="2_nxekm"]
 [ext_resource type="Script" path="res://scenes/follow_navigation.gd" id="3_uilfp"]
+[ext_resource type="AudioStream" uid="uid://darbh7fjaox6d" path="res://sounds/enemy_die.wav" id="5_2iclu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_haj1o"]
 atlas = ExtResource("2_nxekm")
@@ -112,6 +113,9 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_emas2")
+
+[node name="EnemyDieSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_2iclu")
 
 [connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
 [connection signal="body_entered" from="DetectionArea" to="FollowNavigation" method="_on_detection_area_body_entered"]
