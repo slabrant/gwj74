@@ -1,18 +1,73 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0p2hys3ctvuc"]
+[gd_scene load_steps=12 format=3 uid="uid://b0p2hys3ctvuc"]
 
 [ext_resource type="Script" path="res://scenes/monster.gd" id="1_kwpw7"]
 [ext_resource type="Texture2D" uid="uid://cpy0ddpc71ypm" path="res://sprites/monster.png" id="1_u1pwf"]
+[ext_resource type="Texture2D" uid="uid://cyoibetrj3ney" path="res://sprites/new_monster.png" id="2_cslpo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydxku"]
+atlas = ExtResource("2_cslpo")
+region = Rect2(0, 0, 80, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvv3q"]
+atlas = ExtResource("2_cslpo")
+region = Rect2(80, 0, 80, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ls4oy"]
+atlas = ExtResource("2_cslpo")
+region = Rect2(160, 0, 80, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5ox0"]
+atlas = ExtResource("2_cslpo")
+region = Rect2(240, 0, 80, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4kix"]
+atlas = ExtResource("2_cslpo")
+region = Rect2(320, 0, 80, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fac17"]
+atlas = ExtResource("2_cslpo")
+region = Rect2(400, 0, 80, 115)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i7210"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydxku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvv3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ls4oy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5ox0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4kix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fac17")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ogy3q"]
 radius = 28.0
-height = 152.0
+height = 214.0
 
 [node name="Monster" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("1_kwpw7")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_i7210")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_u1pwf")
 
 [node name="DamageArea" type="Area2D" parent="."]

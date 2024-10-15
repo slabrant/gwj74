@@ -51,7 +51,7 @@ unique_name_in_owner = true
 position = Vector2(24, 64)
 
 [node name="Monster" parent="." instance=ExtResource("5_xnctd")]
-position = Vector2(-112, 23)
+position = Vector2(-112, -9)
 
 [node name="NavigationLayer" type="TileMapLayer" parent="."]
 visible = false
@@ -213,6 +213,9 @@ position = Vector2(1120, 112)
 
 [node name="FollowEnemy2" parent="Enemies" instance=ExtResource("7_fm1v0")]
 position = Vector2(736, -40)
+
+[node name="FollowEnemy3" parent="Enemies" instance=ExtResource("7_fm1v0")]
+position = Vector2(160, -32)
 
 [node name="DeathSpikes" parent="." instance=ExtResource("9_gblvi")]
 position = Vector2(216, 136)
