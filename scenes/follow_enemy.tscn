@@ -97,7 +97,7 @@ shape = SubResource("CircleShape2D_im7g8")
 
 [node name="DamageArea" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 16
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
 shape = SubResource("CircleShape2D_gef8x")

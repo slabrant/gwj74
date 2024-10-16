@@ -24,3 +24,5 @@ func _on_hurt_area_body_entered(body: Node2D) -> void:
 	if body.has_method('hurt'):
 		body.hurt(30)
 		die()
+	if body.has_method('stun'):
+		body.stun(self.position)

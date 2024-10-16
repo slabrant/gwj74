@@ -59,6 +59,12 @@ func game_end():
 	get_tree().root.get_child(0).game_end()
 
 
+func stun(other_position: Vector2):
+	print(velocity)
+	velocity = (position - other_position).normalized() * 2500.0
+	pass
+
+
 func shoot(start_position: Vector2, end_position: Vector2):
 	get_tree().root.get_child(0).play_sound(SHOOT, -10)
 	var bullet = BULLET.instantiate()

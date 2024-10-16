@@ -117,7 +117,6 @@ position = Vector2(72, -120)
 [node name="Cart" parent="." instance=ExtResource("3_f5rc0")]
 unique_name_in_owner = true
 position = Vector2(24, 64)
-fix_speed = 75.0
 
 [node name="Monster" parent="." instance=ExtResource("5_xnctd")]
 position = Vector2(-120, 16)
