@@ -14,17 +14,29 @@ const JUMP_VELOCITY = -300.0
 
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Handle jump.
+	if Input.is_action_just_pressed("input_fix") and cart.fixable:
+		cart.fixing = true
+	
+	if Input.is_action_just_pressed("input_shoot"):
+		shoot(position, get_global_mouse_position())
+		cart.fixing = false
+
+	var direction := Input.get_axis("input_left", "input_right")
 	if Input.is_action_just_pressed("input_jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		sprite.play("jump")
+		sprite.play('jump')
 		jump_sound.play()
 	elif is_on_floor():
-		sprite.play("idle")
+		if direction:
+			sprite.play('walk')
+		elif cart.fixing:
+			sprite.play('fix')
+			cart.fix(delta)
+		else:
+			sprite.play('idle')
 	
 	if Input.is_action_just_pressed("input_duck"):
 		position.y += (1 - crouch_ratio) * 24 # sprite height
@@ -33,17 +45,7 @@ func _physics_process(delta: float) -> void:
 		scale.y = crouch_ratio
 	else:
 		scale.y = 1.00
-	
-	if Input.is_action_just_pressed("input_shoot"):
-		shoot(position, get_global_mouse_position())
-		cart.fixing = false
 
-	if Input.is_action_just_pressed("input_fix") and cart.fixable:
-		cart.fixing = true
-	if cart.fixing:
-		cart.fix(delta)
-
-	var direction := Input.get_axis("input_left", "input_right")
 	if direction:
 		velocity.x = direction * SPEED
 		sprite.flip_h = direction != 1

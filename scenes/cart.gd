@@ -56,6 +56,7 @@ func set_damage_sprite():
 	else:
 		sprite.play("3")
 
+
 func _on_fix_area_body_entered(body: Node2D) -> void:
 	fixable = true
 
