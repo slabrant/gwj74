@@ -5,6 +5,7 @@ extends CharacterBody2D
 
 const HEALTH_MAX = 100
 const SPEED_MAX = 15.0
+@export var fix_speed: float = 25.00
 @export var speed: float = SPEED_MAX * HEALTH_MAX
 @export var health: int = HEALTH_MAX:
 	set(value):
@@ -26,7 +27,6 @@ const SPEED_MAX = 15.0
 @export var fixing: bool = false:
 	set(value):
 		fixing = value
-@export var fix_speed: float = 75.00
 
 
 func _physics_process(delta: float) -> void:
