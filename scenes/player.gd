@@ -60,7 +60,6 @@ func game_end():
 
 
 func stun(other_position: Vector2):
-	print(velocity)
 	velocity = (position - other_position).normalized() * 2500.0
 	pass
 

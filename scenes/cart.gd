@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 const HEALTH_MAX = 100
 const SPEED_MAX = 15.0
-@export var fix_speed: float = 10.0
+@export var fix_speed: float = 12.0
 @export var speed: float = SPEED_MAX * HEALTH_MAX
 @export var health: float = HEALTH_MAX:
 	set(value):
@@ -39,8 +39,6 @@ func game_end():
 
 
 func fix(delta):
-	#health += (fix_speed/100 + 55) * delta
-	#print(health)
 	health += fix_speed * delta
 
 

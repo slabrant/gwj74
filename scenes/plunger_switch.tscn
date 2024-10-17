@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://dnkbf2pdaho5c"]
+
+[ext_resource type="Texture2D" uid="uid://b7t5gqowhyjop" path="res://sprites/plunger_switch.png" id="1_40lh0"]
+[ext_resource type="Script" path="res://scenes/plunger_switch.gd" id="1_gnd8r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0te5"]
+size = Vector2(32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbc31"]
+atlas = ExtResource("1_40lh0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k7vo"]
+atlas = ExtResource("1_40lh0")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17y8f"]
+atlas = ExtResource("1_40lh0")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gkuf6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbc31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4k7vo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17y8f")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="PlungerSwitch" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_gnd8r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_k0te5")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gkuf6")
+
+[node name="ActivateLabel" type="Label" parent="."]
+offset_left = -8.0
+offset_top = -40.0
+offset_right = 8.0
+offset_bottom = -16.0
+text = "E"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
