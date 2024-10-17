@@ -294,3 +294,13 @@ position = Vector2(304, -108)
 
 [node name="FallingSpike2" parent="." instance=ExtResource("10_rnq5s")]
 position = Vector2(208, -108)
+
+[node name="BreakableBlock" parent="." instance=ExtResource("7_wxytj")]
+position = Vector2(537, 72)
+
+[node name="BreakableBlock2" parent="." instance=ExtResource("7_wxytj")]
+position = Vector2(554, 56)
+
+[node name="BreakableBlock3" parent="." instance=ExtResource("7_wxytj")]
+position = Vector2(537, 40)
+rotation = 1.5708
