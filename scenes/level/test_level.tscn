@@ -113,6 +113,7 @@ tile_set = SubResource("TileSet_ftra7")
 [node name="Player" parent="." instance=ExtResource("2_qhgf1")]
 unique_name_in_owner = true
 position = Vector2(72, -120)
+crouch_ratio = 0.66
 
 [node name="Cart" parent="." instance=ExtResource("3_f5rc0")]
 unique_name_in_owner = true
