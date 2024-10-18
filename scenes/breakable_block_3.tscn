@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwkhfvoo3akq6"]
+
+[ext_resource type="PackedScene" uid="uid://cy3f5555rpss0" path="res://scenes/breakable_block.tscn" id="1_8vmo4"]
+[ext_resource type="Texture2D" uid="uid://8jcwkbth6at2" path="res://sprites/breakable_block3.png" id="2_ae0fe"]
+
+[node name="BreakableBlock3" instance=ExtResource("1_8vmo4")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_ae0fe")
