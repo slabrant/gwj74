@@ -193,3 +193,10 @@ shape = SubResource("RectangleShape2D_1t0em")
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_y4nv0")
 volume_db = -25.0
+
+[node name="StunTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ShotTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true

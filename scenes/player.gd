@@ -3,6 +3,9 @@ extends CharacterBody2D
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var cart = %Cart
+@onready var shot_timer: Timer = $ShotTimer
+@onready var stun_timer: Timer = $StunTimer
+
 const BULLET = preload("res://scenes/bullet.tscn")
 const SHOOT = preload("res://sounds/shoot.wav")
 
@@ -10,12 +13,21 @@ const SPEED = 150.0
 const BULLET_SPEED = 150.0
 const JUMP_VELOCITY = -300.0
 
-@export var crouch_ratio = 0.80
+@export var crouch_ratio = 0.80:
+	set(value):
+		crouch_ratio = round(value * 24) / 24
+		print(crouch_ratio)
 
 
 func _physics_process(delta: float) -> void:
+	move_and_slide()
+	velocity.x = move_toward(velocity.x, 0, SPEED)
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	
+	if 0 < stun_timer.time_left:
+		return
 
 	if Input.is_action_just_pressed("input_fix") and cart.fixable:
 		cart.fixing = true
@@ -39,7 +51,7 @@ func _physics_process(delta: float) -> void:
 			sprite.play('idle')
 	
 	if Input.is_action_just_pressed("input_duck"):
-		position.y += (1 - crouch_ratio) * 24 # sprite height
+		position.y += (1 - crouch_ratio) * 24 # 24 is sprite height
 		
 	if Input.is_action_pressed("input_duck"):
 		scale.y = crouch_ratio
@@ -49,10 +61,6 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction * SPEED
 		sprite.flip_h = direction != 1
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-	move_and_slide()
 
 
 func game_end():
@@ -60,11 +68,15 @@ func game_end():
 
 
 func stun(other_position: Vector2):
-	velocity = (position - other_position).normalized() * 2500.0
-	pass
+	var x_norm_pos: int = 1 if 0 < (position - other_position).x else -1
+	velocity = Vector2(x_norm_pos * 100, -100)
+	stun_timer.start()
 
 
 func shoot(start_position: Vector2, end_position: Vector2):
+	if 0 < shot_timer.time_left:
+		return
+	shot_timer.start()
 	get_tree().root.get_child(0).play_sound(SHOOT, -25)
 	var bullet = BULLET.instantiate()
 	bullet.position = start_position

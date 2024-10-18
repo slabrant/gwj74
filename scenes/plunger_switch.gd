@@ -11,7 +11,15 @@ extends Area2D
 		sprite.play()
 		active = true
 		bomb_area.active = true
-@export var player: Node2D
+@export var player: Node2D:
+	set(value):
+		if value:
+			activate_label.show()
+		else:
+			activate_label.hide()
+		
+		player = value
+		
 
 
 # Called when the node enters the scene tree for the first time.
@@ -27,3 +35,8 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	player = body
+
+
+func _on_body_exited(body: Node2D) -> void:
+	player = null
+	pass # Replace with function body.

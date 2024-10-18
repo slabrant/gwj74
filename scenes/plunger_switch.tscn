@@ -47,6 +47,7 @@ shape = SubResource("RectangleShape2D_k0te5")
 sprite_frames = SubResource("SpriteFrames_gkuf6")
 
 [node name="ActivateLabel" type="Label" parent="."]
+visible = false
 offset_left = -8.0
 offset_top = -40.0
 offset_right = 8.0
@@ -55,3 +56,4 @@ text = "E"
 horizontal_alignment = 1
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

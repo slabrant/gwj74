@@ -22,6 +22,10 @@ window/size/viewport_height=360
 window/size/mode=2
 window/stretch/mode="canvas_items"
 
+[gui]
+
+theme/custom_font="res://Unbalanced.ttf"
+
 [input]
 
 input_jump={
