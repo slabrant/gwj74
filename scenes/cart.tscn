@@ -1,10 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://drruw3a3l261l"]
+[gd_scene load_steps=36 format=3 uid="uid://drruw3a3l261l"]
 
 [ext_resource type="Script" path="res://scenes/cart.gd" id="1_o1r18"]
 [ext_resource type="Texture2D" uid="uid://qyaiurexwn8u" path="res://sprites/new_cart.png" id="2_ywh73"]
 [ext_resource type="Texture2D" uid="uid://ijr3tpki7f4o" path="res://sprites/new_cart_1_damage.png" id="3_ddo34"]
 [ext_resource type="Texture2D" uid="uid://dvg1smvfpmyre" path="res://sprites/new_cart_2_damage.png" id="4_eu52g"]
 [ext_resource type="Texture2D" uid="uid://ia4we1wtfv2l" path="res://sprites/new_cart_3_damage.png" id="5_ypvfb"]
+[ext_resource type="Shader" path="res://scenes/cart.gdshader" id="6_tx041"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gnc1g"]
 atlas = ExtResource("2_ywh73")
@@ -207,6 +208,12 @@ height = 106.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_5s0vd"]
 radius = 53.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nkne7"]
+shader = ExtResource("6_tx041")
+shader_parameter/color = null
+shader_parameter/radius = null
+shader_parameter/softness = null
+
 [node name="Cart" type="CharacterBody2D"]
 collision_layer = 18
 collision_mask = 0
@@ -214,7 +221,7 @@ script = ExtResource("1_o1r18")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0g1yi")
-animation = &"3"
+animation = &"1"
 autoplay = "0"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -247,6 +254,12 @@ offset_top = -21.0
 offset_right = 14.0
 offset_bottom = 2.0
 text = "Fix"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_nkne7")
 
 [connection signal="body_entered" from="FixArea" to="." method="_on_fix_area_body_entered"]
 [connection signal="body_exited" from="FixArea" to="." method="_on_fix_area_body_exited"]
