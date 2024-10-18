@@ -7,7 +7,10 @@ extends Area2D
 
 func activate():
 	for target in targets:
-		target.queue_free()
+		if target.has_method('die'):
+			target.die()
+		else:
+			target.queue_free()
 	queue_free()
 
 

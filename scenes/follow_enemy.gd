@@ -7,7 +7,7 @@ const ENEMY_DIE = preload("res://sounds/enemy_die.wav")
 
 
 func die():
-	get_tree().root.get_child(0).play_sound(ENEMY_DIE, -10)
+	get_tree().root.get_child(0).play_sound(ENEMY_DIE, -25)
 	queue_free()
 
 
