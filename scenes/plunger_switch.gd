@@ -3,12 +3,14 @@ extends Area2D
 @onready var activate_label: Label = $ActivateLabel
 @onready var sprite: AnimatedSprite2D = $Sprite
 
+@export var bomb_area: Node2D
 @export var active: bool = false:
 	set(value):
 		if active:
 			return
 		sprite.play()
 		active = true
+		bomb_area.active = true
 @export var player: Node2D
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://cfr4wupxkteff"]
+[gd_scene load_steps=32 format=4 uid="uid://cfr4wupxkteff"]
 
 [ext_resource type="Texture2D" uid="uid://dksj6ispeyk3n" path="res://sprites/block.png" id="1_6xfjt"]
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_b6ght"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dkwnm5efvdgx4" path="res://scenes/breakable_block_5.tscn" id="17_14k87"]
 [ext_resource type="PackedScene" uid="uid://ckmjeiptq3p1x" path="res://scenes/breakable_block1.tscn" id="18_ed60m"]
 [ext_resource type="PackedScene" uid="uid://bqyvlx75j6shc" path="res://scenes/breakable_block_4.tscn" id="19_du581"]
+[ext_resource type="PackedScene" uid="uid://ceag1k5luu8gb" path="res://scenes/bomb_area.tscn" id="20_llei0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wjn42"]
 texture = ExtResource("5_hhrm6")
@@ -388,6 +389,24 @@ position = Vector2(584, 72)
 [node name="BreakableBlock6" parent="Blocks" instance=ExtResource("7_wxytj")]
 position = Vector2(1000, 72)
 
+[node name="BreakableBlock45" parent="Blocks" instance=ExtResource("15_cqnig")]
+position = Vector2(360, 72)
+
+[node name="BreakableBlock46" parent="Blocks" instance=ExtResource("16_vxuaj")]
+position = Vector2(376, 72)
+
+[node name="BreakableBlock48" parent="Blocks" instance=ExtResource("17_14k87")]
+position = Vector2(376, 56)
+
+[node name="BreakableBlock1" parent="Blocks" instance=ExtResource("18_ed60m")]
+position = Vector2(360, 56)
+
+[node name="BreakableBlock49" parent="Blocks" instance=ExtResource("19_du581")]
+position = Vector2(392, 72)
+
+[node name="BreakableBlock54" parent="Blocks" instance=ExtResource("17_14k87")]
+position = Vector2(392, 56)
+
 [node name="Enemies" type="Node" parent="."]
 
 [node name="FollowEnemy" parent="Enemies" instance=ExtResource("7_fm1v0")]
@@ -419,23 +438,9 @@ position = Vector2(554, 56)
 position = Vector2(537, 40)
 rotation = 1.5708
 
-[node name="PlungerSwitch" parent="." instance=ExtResource("14_8iqjv")]
+[node name="PlungerSwitch" parent="." node_paths=PackedStringArray("bomb_area") instance=ExtResource("14_8iqjv")]
 position = Vector2(208, 40)
+bomb_area = NodePath("../BombArea")
 
-[node name="BreakableBlock5" parent="." instance=ExtResource("15_cqnig")]
-position = Vector2(360, 72)
-
-[node name="BreakableBlock6" parent="." instance=ExtResource("16_vxuaj")]
-position = Vector2(376, 72)
-
-[node name="BreakableBlock7" parent="." instance=ExtResource("17_14k87")]
-position = Vector2(376, 56)
-
-[node name="BreakableBlock1" parent="." instance=ExtResource("18_ed60m")]
-position = Vector2(360, 56)
-
-[node name="BreakableBlock4" parent="." instance=ExtResource("19_du581")]
-position = Vector2(392, 72)
-
-[node name="BreakableBlock8" parent="." instance=ExtResource("17_14k87")]
-position = Vector2(392, 56)
+[node name="BombArea" parent="." instance=ExtResource("20_llei0")]
+position = Vector2(376, 64)
