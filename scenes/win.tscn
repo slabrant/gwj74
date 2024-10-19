@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://2kayash7xl1i"]
+
+[ext_resource type="Script" path="res://scenes/win.gd" id="1_jsvv8"]
+[ext_resource type="Texture2D" uid="uid://yoqocj5l4tqp" path="res://sprites/win.png" id="1_y2hmp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tvpoe"]
+radius = 24.0
+
+[node name="Win" type="Area2D"]
+script = ExtResource("1_jsvv8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tvpoe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_y2hmp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

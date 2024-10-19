@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://bajyy58aq7sbx"]
+
+[ext_resource type="PackedScene" uid="uid://c6xdlv75ub4sh" path="res://scenes/level/menu.tscn" id="1_0r6d8"]
+[ext_resource type="Script" path="res://scenes/level/main_menu_button.gd" id="2_kc5ym"]
+
+[node name="WinMenu" instance=ExtResource("1_0r6d8")]
+
+[node name="Label" type="Label" parent="." index="2"]
+offset_top = 16.0
+offset_right = 320.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 48
+text = "Congratulations!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="." index="3"]
+offset_top = 72.0
+offset_right = 320.0
+offset_bottom = 164.0
+theme_override_font_sizes/font_size = 16
+text = "Thank you to everyone who played our game.
+It means a lot to us.
+
+glasstacojar smiley_bonez kurioshopp
+w/ pizzaburgerpan & mievro"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenuButton" type="Button" parent="." index="4"]
+offset_top = 168.0
+offset_right = 53.0
+offset_bottom = 192.0
+text = "<- Menu"
+script = ExtResource("2_kc5ym")
+
+[connection signal="pressed" from="MainMenuButton" to="MainMenuButton" method="_on_pressed"]

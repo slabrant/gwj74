@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://xxt3pqehtuel"]
+
+[ext_resource type="PackedScene" uid="uid://c6xdlv75ub4sh" path="res://scenes/level/menu.tscn" id="1_xkaaa"]
+[ext_resource type="Script" path="res://scenes/level/main_menu_button.gd" id="2_6263s"]
+
+[node name="ControlsMenu" instance=ExtResource("1_xkaaa")]
+
+[node name="Controls" type="Label" parent="." index="2"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 48.0
+offset_right = 279.0
+offset_bottom = 140.0
+text = "Move: WASD and Arrow Keys
+Jump: Space Bar
+Crouch: Shift
+Activate/Fix: RMB
+Shoot: LMB"
+
+[node name="MainMenuButton" type="Button" parent="." index="3"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 40.0
+offset_right = 61.0
+offset_bottom = 64.0
+text = "<- Back"
+script = ExtResource("2_6263s")
+
+[connection signal="pressed" from="MainMenuButton" to="MainMenuButton" method="_on_pressed"]

@@ -1,21 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://bikibrm5gh3dq"]
+[gd_scene load_steps=5 format=3 uid="uid://bikibrm5gh3dq"]
 
-[ext_resource type="Texture2D" uid="uid://d0jqpogod52sh" path="res://sprites/spikes.png" id="1_4feai"]
 [ext_resource type="Script" path="res://scenes/death_spikes.gd" id="1_7fx22"]
+[ext_resource type="Texture2D" uid="uid://cfnqosia2gmj8" path="res://sprites/spike_u1.png" id="2_256k3"]
+[ext_resource type="Texture2D" uid="uid://jg2cvgvy45vu" path="res://sprites/spike_u2.png" id="3_7exbm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgbfi"]
-size = Vector2(48, 11)
+size = Vector2(48, 10)
 
 [node name="DeathSpikes" type="Area2D"]
+position = Vector2(16, -16)
 collision_layer = 8
 script = ExtResource("1_7fx22")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_4feai")
-flip_v = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2.5)
+position = Vector2(-16, 11)
 shape = SubResource("RectangleShape2D_xgbfi")
+
+[node name="SpikeU1" type="Sprite2D" parent="."]
+position = Vector2(-16, 8)
+texture = ExtResource("2_256k3")
+
+[node name="SpikeU2" type="Sprite2D" parent="."]
+position = Vector2(0, 8)
+texture = ExtResource("3_7exbm")
+
+[node name="SpikeU3" type="Sprite2D" parent="."]
+position = Vector2(-32, 8)
+texture = ExtResource("3_7exbm")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

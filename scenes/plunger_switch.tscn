@@ -52,7 +52,7 @@ offset_left = -8.0
 offset_top = -40.0
 offset_right = 8.0
 offset_bottom = -16.0
-text = "E"
+text = "RMB"
 horizontal_alignment = 1
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b7aytfg8l3eyn"]
 
 [ext_resource type="Script" path="res://scenes/falling_spike.gd" id="1_3yuye"]
-[ext_resource type="Texture2D" uid="uid://bjt445jhw6uwi" path="res://sprites/spike.png" id="1_nvmnr"]
+[ext_resource type="Texture2D" uid="uid://dfefkfmse4gjw" path="res://sprites/spike_d1.png" id="2_ew5wy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_modur"]
 size = Vector2(16, 294)
@@ -13,11 +13,6 @@ size = Vector2(16, 10)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_3yuye")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 4)
-rotation = 3.14159
-texture = ExtResource("1_nvmnr")
 
 [node name="DetectionArea" type="Area2D" parent="."]
 collision_layer = 0
@@ -34,6 +29,10 @@ collision_mask = 19
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea"]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_ueduf")
+
+[node name="SpikeD1" type="Sprite2D" parent="."]
+position = Vector2(0, 4)
+texture = ExtResource("2_ew5wy")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

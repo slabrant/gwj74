@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 	if 0 < stun_timer.time_left:
 		return
 
-	if Input.is_action_just_pressed("input_fix") and cart.fixable:
+	if Input.is_action_just_pressed("input_activate") and cart.fixable:
 		cart.fixing = true
 	
 	if Input.is_action_just_pressed("input_shoot"):
