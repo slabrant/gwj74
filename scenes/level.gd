@@ -2,12 +2,14 @@ extends Node2D
 
 @onready var navigation_layer: TileMapLayer = $NavigationLayer
 @onready var terrain_layer: TileMapLayer = $TerrainLayer
+@onready var bg_music: AudioStreamPlayer2D = $BgMusic
 
 func game_end():
 	get_tree().reload_current_scene()
 
 
 func _ready() -> void:
+	bg_music.play()
 	generate_navigation()
 
 
