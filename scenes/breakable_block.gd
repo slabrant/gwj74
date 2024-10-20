@@ -5,7 +5,7 @@ const EXPLODE = preload("res://sounds/explode.wav")
 
 
 func die():
-	get_tree().root.get_child(0).play_sound(EXPLODE, -25)
+	get_tree().root.get_child(0).play_sound(EXPLODE, -35)
 	queue_free()
 
 

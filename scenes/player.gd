@@ -16,7 +16,6 @@ const JUMP_VELOCITY = -300.0
 @export var crouch_ratio = 0.80:
 	set(value):
 		crouch_ratio = round(value * 24) / 24
-		print(crouch_ratio)
 
 
 func _physics_process(delta: float) -> void:

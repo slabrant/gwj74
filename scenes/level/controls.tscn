@@ -7,15 +7,15 @@
 
 [node name="Controls" type="Label" parent="." index="2"]
 layout_mode = 0
-offset_left = 112.0
+offset_left = 136.0
 offset_top = 48.0
-offset_right = 279.0
+offset_right = 304.0
 offset_bottom = 140.0
-text = "Move: WASD and Arrow Keys
+text = "Move: WASD or Arrow Keys
 Jump: Space Bar
 Crouch: Shift
-Activate/Fix: RMB
-Shoot: LMB"
+Activate/Fix: Right Click
+Shoot: Left Click"
 
 [node name="MainMenuButton" type="Button" parent="." index="3"]
 layout_mode = 0

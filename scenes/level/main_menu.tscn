@@ -7,10 +7,35 @@
 
 [node name="MainMenu" instance=ExtResource("1_wkfex")]
 
-[node name="Monster" parent="." index="2" instance=ExtResource("2_elxho")]
+[node name="Label" type="Label" parent="." index="2"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 16.0
+offset_right = 320.0
+offset_bottom = 88.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "PHANTOM
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="." index="3"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 56.0
+offset_right = 320.0
+offset_bottom = 112.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "PANIC"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Monster" parent="." index="4" instance=ExtResource("2_elxho")]
 position = Vector2(-120, 136)
 
-[node name="Play" type="Button" parent="." index="3"]
+[node name="Play" type="Button" parent="." index="5"]
 layout_mode = 0
 offset_left = 32.0
 offset_top = 56.0
@@ -20,7 +45,7 @@ theme_override_font_sizes/font_size = 32
 text = "Play"
 script = ExtResource("3_5ufro")
 
-[node name="Controls" type="Button" parent="." index="4"]
+[node name="Controls" type="Button" parent="." index="6"]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 104.0
@@ -29,29 +54,6 @@ offset_bottom = 128.0
 theme_override_font_sizes/font_size = 16
 text = "Controls"
 script = ExtResource("3_1v33b")
-
-[node name="Label" type="Label" parent="." index="5"]
-layout_mode = 0
-offset_left = 128.0
-offset_top = 16.0
-offset_right = 320.0
-offset_bottom = 88.0
-theme_override_font_sizes/font_size = 48
-text = "PHANTOM
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="." index="6"]
-layout_mode = 0
-offset_left = 192.0
-offset_top = 56.0
-offset_right = 320.0
-offset_bottom = 112.0
-theme_override_font_sizes/font_size = 48
-text = "PANIC"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="pressed" from="Play" to="Play" method="_on_pressed"]
 [connection signal="pressed" from="Controls" to="Controls" method="_on_pressed"]

@@ -8,24 +8,23 @@
 size = Vector2(48, 10)
 
 [node name="DeathSpikes" type="Area2D"]
-position = Vector2(16, -16)
 collision_layer = 8
 script = ExtResource("1_7fx22")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-16, 11)
+position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_xgbfi")
 
 [node name="SpikeU1" type="Sprite2D" parent="."]
-position = Vector2(-16, 8)
+position = Vector2(0, -8)
 texture = ExtResource("2_256k3")
 
 [node name="SpikeU2" type="Sprite2D" parent="."]
-position = Vector2(0, 8)
+position = Vector2(16, -8)
 texture = ExtResource("3_7exbm")
 
 [node name="SpikeU3" type="Sprite2D" parent="."]
-position = Vector2(-32, 8)
+position = Vector2(-16, -8)
 texture = ExtResource("3_7exbm")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

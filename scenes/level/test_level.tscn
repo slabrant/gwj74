@@ -466,3 +466,18 @@ position = Vector2(376, 64)
 stream = ExtResource("20_2dqns")
 autoplay = true
 playback_type = 1
+
+[node name="DeathSpikes2" parent="." instance=ExtResource("9_gblvi")]
+position = Vector2(936, 80)
+
+[node name="Spikes Tooltip" type="Label" parent="."]
+offset_left = 832.0
+offset_top = -16.0
+offset_right = 1032.0
+offset_bottom = 57.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Don't jump on death_spikes.tscn
+They hurt...
+|
+\\/"
+horizontal_alignment = 1

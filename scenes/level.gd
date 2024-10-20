@@ -5,7 +5,7 @@ extends Node2D
 @onready var bg_music: AudioStreamPlayer2D = $BgMusic
 
 func game_end():
-	get_tree().change_scene_to_file("res://scenes/level/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/level/lose_menu.tscn")
 
 
 func _ready() -> void:

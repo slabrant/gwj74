@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://de2oalrhxujxa"]
+
+[ext_resource type="PackedScene" uid="uid://c6xdlv75ub4sh" path="res://scenes/level/menu.tscn" id="1_5og10"]
+[ext_resource type="Script" path="res://scenes/level/play.gd" id="2_6liyl"]
+[ext_resource type="Script" path="res://scenes/level/main_menu_button.gd" id="2_t2iys"]
+[ext_resource type="PackedScene" uid="uid://b0p2hys3ctvuc" path="res://scenes/monster.tscn" id="2_vuiqx"]
+
+[node name="Menu" instance=ExtResource("1_5og10")]
+
+[node name="Label" type="Label" parent="." index="2"]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 320.0
+offset_bottom = 96.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Monster" parent="." index="3" instance=ExtResource("2_vuiqx")]
+position = Vector2(-120, 136)
+
+[node name="Play" type="Button" parent="." index="4"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 104.0
+offset_right = 200.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 0
+text = "Try Again"
+script = ExtResource("2_6liyl")
+
+[node name="MainMenuButton" type="Button" parent="." index="5"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 136.0
+offset_right = 200.0
+offset_bottom = 160.0
+text = "Main Menu"
+script = ExtResource("2_t2iys")
+
+[connection signal="pressed" from="Play" to="Play" method="_on_pressed"]
+[connection signal="pressed" from="MainMenuButton" to="MainMenuButton" method="_on_pressed"]
